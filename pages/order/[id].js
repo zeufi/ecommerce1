@@ -104,7 +104,7 @@ export default function order({
       try {
         dispatch({ type: "PAY_REQUEST" });
         const { data } = await axios.put(
-          `/api/order/${orderData._id}/pay`,
+          `https://ecommerce1-dmi7.onrender.com/api/order/${orderData._id}/pay`,
           details
         );
         dispatch({ type: "PAY_SUCCESS", payload: data });

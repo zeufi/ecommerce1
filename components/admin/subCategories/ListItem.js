@@ -29,7 +29,7 @@ export default function ListItem({
   };
   const handleUpdate = async (id) => {
     try {
-      const { data } = await axios.put("/api/admin/subCategory", {
+      const { data } = await axios.put("https://ecommerce1-dmi7.onrender.com/api/admin/subCategory", {
         id,
         name: name || subCategory.name,
         parent: parent || subCategory.parent._id,

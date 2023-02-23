@@ -79,7 +79,7 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
   const signUpHandler = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/auth/signup", {
+      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/auth/signup", {
         name,
         email,
         password,

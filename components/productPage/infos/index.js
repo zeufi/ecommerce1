@@ -46,7 +46,7 @@ export default function Infos({ product, setActiveImg }) {
       return;
     }
     const { data } = await axios.get(
-      `/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
+      `https://ecommerce1-dmi7.onrender.com/api/product/${product._id}?style=${product.style}&size=${router.query.size}`
     );
     if (qty > data.quantity) {
       setError(

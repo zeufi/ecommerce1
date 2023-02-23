@@ -73,7 +73,7 @@ export default function create({ parents, categories }) {
   const dispatch = useDispatch();
 
   useEffect(() => { const getParentData = async () => {
-      const { data } = await axios.get(`/api/product/${product.parent}`);
+      const { data } = await axios.get(`https://ecommerce1-dmi7.onrender.com/api/product/${product.parent}`);
       if (data) {
         setProduct({
           ...product,
@@ -91,7 +91,7 @@ export default function create({ parents, categories }) {
   }, [product.parent]);
 
   useEffect(() => { async function getSubs() {
-      const { data } = await axios.get("/api/admin/subCategory", {
+      const { data } = await axios.get("https://ecommerce1-dmi7.onrender.com/api/admin/subCategory", {
         params: {
           category: product.category,
         },
@@ -160,7 +160,7 @@ export default function create({ parents, categories }) {
       style_img = cloudinary_style_img[0].url;
     }
     try {
-      const { data } = await axios.post("/api/admin/product", {
+      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/admin/product", {
         ...product,
         images: uploaded_images,
         color: {

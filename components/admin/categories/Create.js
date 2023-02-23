@@ -20,7 +20,7 @@ export default function Create({ setCategories }) {
   });
   const submitHandler = async () => {
     try {
-      const { data } = await axios.post("/api/admin/category", { name });
+      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/admin/category", { name });
       setCategories(data.categories);
       setName("");
       toast.success(data.message);

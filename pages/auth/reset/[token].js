@@ -33,7 +33,7 @@ export default function reset({ user_id }) {
   const resetHandler = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.put("/api/auth/reset", {
+      const { data } = await axios.put("https://ecommerce1-dmi7.onrender.com/api/auth/reset", {
         user_id,
         password,
       });

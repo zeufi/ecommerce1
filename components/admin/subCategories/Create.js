@@ -22,7 +22,7 @@ export default function Create({ categories, setSubCategories }) {
   });
   const submitHandler = async () => {
     try {
-      const { data } = await axios.post("/api/admin/subCategory", {
+      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/admin/subCategory", {
         name,
         parent,
       });

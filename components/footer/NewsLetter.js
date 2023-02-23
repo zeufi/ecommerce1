@@ -12,7 +12,7 @@ export default function NewsLetter() {
     setError("");
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/newsletter", { email });
+      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/newsletter", { email });
       setSuccess(data.message);
       setLoading(false);
       setEmail("");

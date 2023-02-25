@@ -56,6 +56,7 @@ export default function Infos({ product, setActiveImg }) {
       setError("This Product is out of stock.");
       return;
     } else {
+      setError("");
       setSuccess("Added to the cart.")
       let _uid = `${data._id}_${product.style}_${router.query.size}`;
       let exist = cart.cartItems.find((p) => p._uid === _uid);

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import axios from "axios";
+
 export default function NewsLetter() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);

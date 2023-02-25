@@ -2,8 +2,8 @@
   "_id": {
     "$oid": "62c2bdd58b564896ec16cc6b"
   },
-  "name": "Gaming",
-  "slug": "gaming",
+  "name": "Accessories",
+  "slug": "accessories",
   "createdAt": {
     "$date": "2022-07-04T10:15:49.921Z"
   },

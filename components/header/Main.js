@@ -4,9 +4,12 @@ import styles from "./styles.module.scss";
 import { RiSearch2Line } from "react-icons/ri";
 import { FaOpencart } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useRouter } from "next/router";
-export default function Main({ searchHandler }) {
+import { useSession } from "next-auth/react";
+
+export default function Main() {
+  const { data: session } = useSession();
   const router = useRouter();
   const [query, setQuery] = useState(router.query.search || "");
   const { cart } = useSelector((state) => ({ ...state }));
@@ -42,7 +45,11 @@ export default function Main({ searchHandler }) {
         <Link legacyBehavior href="/cart">
           <a className={styles.cart}>
             <FaOpencart />
-            <span>0</span>
+            {session ? (
+              <span>{cart.cartItems.length}</span>
+              ) : (
+              <span>0</span>
+              )} 
           </a>
         </Link>
       </div>

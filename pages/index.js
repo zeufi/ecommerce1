@@ -8,6 +8,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Main from "../components/home/main";
 import FlashDeals from "../components/home/flashDeals";
 import Category from "../components/home/category";
+import { useSelector } from "react-redux";
 import db from "../utils/db";
 import {
   gamingSwiper,
@@ -21,17 +22,20 @@ import { useMediaQuery } from "react-responsive";
 import ProductsSwiper from "../components/productsSwiper";
 import Product from "../models/Product";
 import ProductCard from "../components/productCard";
+import { saveCart } from "../requests/user";
+
 export default function home({ country, products }) {
-  console.log("products", products);
+ 
   const { data: session } = useSession();
   const isMedium = useMediaQuery({ query: "(max-width:850px)" });
   const isMobile = useMediaQuery({ query: "(max-width:550px)" });
+  
   return (
     <>
       <Header country={country} />
       <div className={styles.home}>
         <div className={styles.container}>
-          <Main />
+          <Main session={ session} />
           <FlashDeals />
           <div className={styles.home__category}>
             <Category

@@ -1,3 +1,4 @@
+@import "../../styles/base.scss";
 .footer {
   background: #f8f8f8;
   &__container {
@@ -146,4 +147,7 @@
       }
     }
   }
+}
+.error {
+  color: red;
 }

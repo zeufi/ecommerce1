@@ -40,7 +40,7 @@ export default function Create({ setCoupons }) {
       } else if (endDate.getTime() - startDate.getTime() < 0) {
         return toast.error("Start Date cannot be more than the end date.");
       }
-      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/admin/coupon", {
+      const { data } = await axios.post("/api/admin/coupon", {
         coupon: name,
         discount,
         startDate,

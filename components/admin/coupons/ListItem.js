@@ -37,7 +37,7 @@ export default function ListItem({ coupon, setCoupons }) {
   };
   const handleUpdate = async (id) => {
     try {
-      const { data } = await axios.put("https://ecommerce1-dmi7.onrender.com/api/admin/coupon", {
+      const { data } = await axios.put("/api/admin/coupon", {
         id,
         coupon: name || coupon.coupon,
         discount: discount || coupon.discount,

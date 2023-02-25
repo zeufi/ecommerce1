@@ -336,101 +336,50 @@ export async function getServerSideProps(ctx) {
   //-------------------------------------------------->
   const search =
     searchQuery && searchQuery !== ""
-      ? {
-          name: {
-            $regex: searchQuery,
-            $options: "i",
-          },
-        }
+      ? { name: { $regex: searchQuery,$options: "i",},}
       : {};
-  const category =
-    categoryQuery && categoryQuery !== "" ? { category: categoryQuery } : {};
-
+  const category = categoryQuery && categoryQuery !== "" ? { category: categoryQuery } : {};
   const style =
     styleQuery && styleQuery !== ""
       ? {
-          "details.value": {
-            $regex: styleSearchRegex,
-            $options: "i",
-          },
-        }
+          "details.value": {$regex: styleSearchRegex, $options: "i",},}
       : {};
   const size =
     sizeQuery && sizeQuery !== ""
-      ? {
-          "subProducts.sizes.size": {
-            $regex: sizeSearchRegex,
-            $options: "i",
-          },
-        }
+      ? {"subProducts.sizes.size": {$regex: sizeSearchRegex, $options: "i",},}
       : {};
   const color =
     colorQuery && colorQuery !== ""
-      ? {
-          "subProducts.color.color": {
-            $regex: colorSearchRegex,
-            $options: "i",
-          },
-        }
+      ? {"subProducts.color.color": {$regex: colorSearchRegex, $options: "i", },}
       : {};
   const brand =
     brandQuery && brandQuery !== ""
-      ? {
-          brand: {
-            $regex: brandSearchRegex,
-            $options: "i",
-          },
-        }
+      ? {brand: {$regex: brandSearchRegex, $options: "i",},}
       : {};
   const pattern =
     patternQuery && patternQuery !== ""
-      ? {
-          "details.value": {
-            $regex: patternSearchRegex,
-            $options: "i",
-          },
-        }
+      ? {"details.value": {$regex: patternSearchRegex, $options: "i",},}
       : {};
   const material =
     materialQuery && materialQuery !== ""
-      ? {
-          "details.value": {
-            $regex: materialSearchRegex,
-            $options: "i",
-          },
-        }
+      ? {"details.value": { $regex: materialSearchRegex, $options: "i",},}
       : {};
   const gender =
     genderQuery && genderQuery !== ""
-      ? {
-          "details.value": {
-            $regex: genderQuery,
-            $options: "i",
-          },
-        }
+      ? {"details.value": {$regex: genderQuery, $options: "i",},}
       : {};
   const price =
     priceQuery && priceQuery !== ""
-      ? {
-          "subProducts.sizes.price": {
-            $gte: Number(priceQuery[0]) || 0,
-            $lte: Number(priceQuery[1]) || Infinity,
-          },
-        }
+      ? {"subProducts.sizes.price": {$gte: Number(priceQuery[0]) || 0,
+          $lte: Number(priceQuery[1]) || Infinity,},}
       : {};
   const shipping =
     shippingQuery && shippingQuery == "0"
-      ? {
-          shipping: 0,
-        }
+      ? {shipping: 0,}
       : {};
   const rating =
     ratingQuery && ratingQuery !== ""
-      ? {
-          rating: {
-            $gte: Number(ratingQuery),
-          },
-        }
+      ? {rating: {$gte: Number(ratingQuery),},}
       : {};
   const sort =
     sortQuery == ""
@@ -452,19 +401,13 @@ export async function getServerSideProps(ctx) {
   //-------------------------------------------------->
   function createRegex(data, styleRegex) {
     if (data.length > 1) {
-      for (var i = 1; i < data.length; i++) {
-        styleRegex += `|^${data[i]}`;
-      }
+      for (var i = 1; i < data.length; i++) {styleRegex += `|^${data[i]}`;}
     }
     return styleRegex;
   }
-  let data = await axios
-    .get("https://api.ipregistry.co/?key=r208izz0q0icseks")
-    .then((res) => {
-      return res.data.location.country;
-    })
+  let data = await axios.get("https://api.ipregistry.co/?key=r208izz0q0icseks")
+    .then((res) => {return res.data.location.country;})
     .catch((err) => {
-      console.log(err);
     });
   //-------------------------------------------------->
   db.connectDb();
@@ -481,27 +424,14 @@ export async function getServerSideProps(ctx) {
     ...price,
     ...shipping,
     ...rating,
-  })
-    .skip(pageSize * (page - 1))
-    .limit(pageSize)
-    .sort(sort)
-    .lean();
-  let products =
-    sortQuery && sortQuery !== "" ? productsDb : randomize(productsDb);
+  }).skip(pageSize * (page - 1)).limit(pageSize).sort(sort).lean();
+  let products = sortQuery && sortQuery !== "" ? productsDb : randomize(productsDb);
   let categories = await Category.find().lean();
   let subCategories = await SubCategory.find()
-    .populate({
-      path: "parent",
-      model: Category,
-    })
-    .lean();
-  let colors = await Product.find({ ...category }).distinct(
-    "subProducts.color.color"
-  );
+    .populate({path: "parent", model: Category,}).lean();
+  let colors = await Product.find({ ...category }).distinct("subProducts.color.color");
   let brandsDb = await Product.find({ ...category }).distinct("brand");
-  let sizes = await Product.find({ ...category }).distinct(
-    "subProducts.sizes.size"
-  );
+  let sizes = await Product.find({ ...category }).distinct("subProducts.sizes.size");
   let details = await Product.find({ ...category }).distinct("details");
   let stylesDb = filterArray(details, "Style");
   let patternsDb = filterArray(details, "Pattern Type");
@@ -537,8 +467,8 @@ export async function getServerSideProps(ctx) {
       materials,
       paginationCount: Math.ceil(totalProducts / pageSize),
       country: {
-        name: "Morocco",
-        flag: "https://cdn-icons-png.flaticon.com/512/197/197551.png?w=360",
+        name: "Cameroon",
+        flag: "https://static.vecteezy.com/system/resources/thumbnails/001/803/437/original/cameroon-flag-loop-free-video.jpg",
       },
     },
   };

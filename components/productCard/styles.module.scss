@@ -1,6 +1,4 @@
-$redish-color: #f15f6f;
-$shadow-1: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-$yellow-color: #fac80f;
+@import "../../styles/base.scss";
 .product {
   position: relative;
   width: 290px;

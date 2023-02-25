@@ -41,7 +41,7 @@ export default function Summary({
         setOrder_Error("Please choose a shipping address.");
         return;
       }
-      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/order/create", {
+      const { data } = await axios.post("/api/order/create", {
         products: cart.products,
         shippingAddress: selectedAddress,
         paymentMethod,

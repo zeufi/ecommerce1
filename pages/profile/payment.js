@@ -14,7 +14,7 @@ export default function payment({ user, tab, defaultPaymentMethod }) {
   const [error, setError] = useState("");
   const handlePM = async () => {
     try {
-      const { data } = await axios.put("https://ecommerce1-dmi7.onrender.com/api/user/changePM", {
+      const { data } = await axios.put("/api/user/changePM", {
         paymentMethod,
       });
       setError("");

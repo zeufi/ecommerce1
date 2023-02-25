@@ -79,7 +79,7 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
   const signUpHandler = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/auth/signup", {
+      const { data } = await axios.post("/api/auth/signup", {
         name,
         email,
         password,
@@ -118,8 +118,8 @@ export default function signin({ providers, callbackUrl, csrfToken }) {
     }
   };
   const country = {
-    name: "Morocco",
-    flag: "https://cdn-icons-png.flaticon.com/512/197/197551.png?w=360",
+    name: "Cameroon",
+    flag: "https://static.vecteezy.com/system/resources/thumbnails/001/803/437/original/cameroon-flag-loop-free-video.jpg",
   };
   return (
     <>

@@ -78,7 +78,7 @@ export default function AddReview({ product, setReviews }) {
         });
         uploaded_images = await uploadImages(formData);
       }
-      const { data } = await axios.put(`https://ecommerce1-dmi7.onrender.com/api/product/${product._id}/review`, {
+      const { data } = await axios.put(`/api/product/${product._id}/review`, {
         size,
         style,
         fit,

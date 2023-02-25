@@ -27,7 +27,7 @@ export default function forgot() {
   const forgotHandler = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/auth/forgot", {
+      const { data } = await axios.post("/api/auth/forgot", {
         email,
       });
       setError("");

@@ -34,7 +34,7 @@ export default function security({ user, tab }) {
   });
   const changePasswordHanlder = async () => {
     try {
-      const { data } = await axios.put("https://ecommerce1-dmi7.onrender.com/api/user/changePassword", {
+      const { data } = await axios.put("/api/user/changePassword", {
         current_password,
         password,
       });

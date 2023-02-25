@@ -33,7 +33,7 @@ export default function Form({ total, order_id }) {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const res = await axios.post(`https://ecommerce1-dmi7.onrender.com/api/order/${order_id}/payWithStripe`, {
+        const res = await axios.post(`/api/order/${order_id}/payWithStripe`, {
           amount: total,
           id,
         });

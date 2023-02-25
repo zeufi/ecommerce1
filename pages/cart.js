@@ -49,7 +49,7 @@ export default function cart() {
     <>
       <Header />
       <div className={styles.cart}>
-        {cart.cartItems.length > 0 ? (
+        {session && cart.cartItems.length > 0 ? (
           <div className={styles.cart__container}>
             <CartHeader
               cartItems={cart.cartItems}

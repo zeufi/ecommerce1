@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-unescaped-entities */
 import styles from "../../styles/order.module.scss";
@@ -104,7 +105,7 @@ export default function order({
       try {
         dispatch({ type: "PAY_REQUEST" });
         const { data } = await axios.put(
-          `https://ecommerce1-dmi7.onrender.com/api/order/${orderData._id}/pay`,
+          `/api/order/${orderData._id}/pay`,
           details
         );
         dispatch({ type: "PAY_SUCCESS", payload: data });

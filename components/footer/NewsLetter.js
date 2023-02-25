@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import axios from "axios";
+
 export default function NewsLetter() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ export default function NewsLetter() {
     setError("");
     try {
       setLoading(true);
-      const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/newsletter", { email });
+      const { data } = await axios.post("/api/newsletter", { email });
       setSuccess(data.message);
       setLoading(false);
       setEmail("");

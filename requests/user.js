@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const saveCart = async (cart) => {
   try {
-    const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/user/saveCart", {
+    const { data } = await axios.post("/api/user/saveCart", {
       cart,
     });
     return data;
@@ -13,7 +13,7 @@ export const saveCart = async (cart) => {
 
 export const saveAddress = async (address, userId) => {
   try {
-    const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/user/saveAddress", {
+    const { data } = await axios.post("/api/user/saveAddress", {
       address,
       userId,
     });
@@ -25,7 +25,7 @@ export const saveAddress = async (address, userId) => {
 
 export const changeActiveAddress = async (id) => {
   try {
-    const { data } = await axios.put("https://ecommerce1-dmi7.onrender.com/api/user/manageAddress", {
+    const { data } = await axios.put("/api/user/manageAddress", {
       id,
     });
     return data;
@@ -36,7 +36,7 @@ export const changeActiveAddress = async (id) => {
 
 export const deleteAddress = async (id) => {
   try {
-    const { data } = await axios.delete("https://ecommerce1-dmi7.onrender.com/api/user/manageAddress", {
+    const { data } = await axios.delete("/api/user/manageAddress", {
       data: { id },
     });
     return data;
@@ -46,7 +46,7 @@ export const deleteAddress = async (id) => {
 };
 
 export const applyCoupon = async (coupon) => {
-  const { data } = await axios.post("https://ecommerce1-dmi7.onrender.com/api/user/applyCoupon", {
+  const { data } = await axios.post("/api/user/applyCoupon", {
     coupon,
   });
   return data;

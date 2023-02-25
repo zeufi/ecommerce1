@@ -14,6 +14,7 @@ handler.post(async (req, res) => {
       .status(200)
       .json({ message: "You have been added to our newsletter successfully." });
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ message: error.message });
   }
 });

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import styles from "./styles.module.scss";
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
 import {
@@ -14,12 +15,12 @@ export default function Socials() {
         <h3>STAY CONNECTED</h3>
         <ul>
           <li>
-            <a href="/" target="_blank">
+            <a href="https://www.facebook.com/tabantuatelier" target="_blank">
               <FaFacebookF />
             </a>
           </li>
           <li>
-            <a href="/" target="_blank">
+            <a href="https://www.instagram.com/tabantuatelier" target="_blank">
               <BsInstagram />
             </a>
           </li>
@@ -29,7 +30,7 @@ export default function Socials() {
             </a>
           </li>
           <li>
-            <a href="/" target="_blank">
+            <a href="https://www.youtube.com/watch?app=desktop&v=dMacgs7NjuM" target="_blank">
               <BsYoutube />
             </a>
           </li>

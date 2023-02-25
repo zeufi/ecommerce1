@@ -1,4 +1,6 @@
-.dropdown {
+
+@import "../../../../styles/base.scss";
+@import "../../../admin/base";.dropdown {
   position: relative;
   z-index: 99;
   &__toggle {

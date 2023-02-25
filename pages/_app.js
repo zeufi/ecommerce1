@@ -14,9 +14,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <>
       <Head>
         <title>Tabantù Atelier</title>
+        
         <meta
-          name="description"
-          content="Modern African Fashion shopping service for all of your needs."
+          name="viewport" content="width=device-width, initial-scale=1"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
